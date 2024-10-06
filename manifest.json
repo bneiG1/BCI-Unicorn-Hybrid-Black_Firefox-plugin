@@ -1,0 +1,17 @@
+{
+  "description": "Navigate the internet only using your brain",
+  "manifest_version": 2,
+  "name": "MindSurfers",
+  "version": "1.0",
+  "homepage_url": "https://github.com/Relu12345/Hackathon-IEEE-SMC-2024/tree/main/Proiect%20Web",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "EEGselector.js"
+      ]
+    }
+  ]
+}
