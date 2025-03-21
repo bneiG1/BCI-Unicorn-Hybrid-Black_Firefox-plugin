@@ -26,13 +26,16 @@
   "scripts": {
     "clean": "rmdir /s /q dist",
     "compile": "npx tsc",
-    "copy-assets": "robocopy . dist /E /XD src dist /XF tsconfig.json /XF EEGselector.js",
-    "remove-export": "node removeExport.js",
+    "copy-assets": "robocopy . dist /E /XD src dist /XF tsconfig.json",
+    "remove-export": "node utils/removeExport.js",
     "build": "npm run clean && npm run compile && npm run remove-export && npm run copy-assets"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.310",
     "@types/node": "^22.13.10",
     "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "brainflow": "^5.16.0"
   }
 }

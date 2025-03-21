@@ -31,8 +31,8 @@ function findClickableElementsInView(excludeElements: HTMLElement[]): HTMLElemen
 }
 
 // Function to add flashing border and overlay to elements
-function addFlashingBorderAndOverlayToElements(): void {
-    const clickableElements = findClickableElementsInView(previouslyFlashingElements);
+function addFlashingBorderAndOverlayToElements(elements: HTMLElement[]): void {
+    const clickableElements = elements.slice(0, 5); // Limit to first 5 elements
 
     // Clean up previous overlays and borders
     const flashingElements = document.querySelectorAll<HTMLElement>('.flashing-border, .overlay');
@@ -68,7 +68,7 @@ function addFlashingBorderAndOverlayToElements(): void {
 // Function to handle events and update flashing elements
 const updateFlashingElements = debounce(() => {
     currentClickableElements = findClickableElementsInView([]); // Get all clickable elements
-    addFlashingBorderAndOverlayToElements();
+    addFlashingBorderAndOverlayToElements(currentClickableElements);
 }, 5000);
 
 let inactivityTimer: NodeJS.Timeout;
@@ -93,7 +93,7 @@ function switchToNextFlashingElements(): void {
     }
 
     if (nextClickableElements.length > 0) {
-        addFlashingBorderAndOverlayToElements();
+        addFlashingBorderAndOverlayToElements(nextClickableElements);
         const timestamp = new Date().toLocaleString();
         console.log(`Switched to new flashing elements at ${timestamp}:`, nextClickableElements);
     } else {
@@ -135,7 +135,7 @@ document.head.appendChild(style);
 // Initialize elements on page load
 window.onload = () => {
     currentClickableElements = findClickableElementsInView(previouslyFlashingElements);
-    addFlashingBorderAndOverlayToElements();
+    addFlashingBorderAndOverlayToElements(currentClickableElements);
 };
 
 // Listen for various events to update elements
@@ -179,3 +179,17 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         element.classList.remove('overlay');
     });
 }
+
+function visualizeData(data: number[]): void {
+    const mockElements = data.map((value, index) => {
+        const element = document.createElement('div');
+        element.textContent = `Element ${index + 1}: ${value.toFixed(2)}`;
+        document.body.appendChild(element);
+        return element;
+    });
+
+    addFlashingBorderAndOverlayToElements(mockElements);
+}
+
+// Attach function to `window` so it can be accessed in the JS runtime
+(window as any).visualizeData = visualizeData;

@@ -8,8 +8,8 @@ const __dirname = path.dirname(__filename);
 
 // Define the file paths to process
 const filesToProcess = [
-    path.join(__dirname, 'dist', 'src', 'background', 'EEGselector.js'),
-    path.join(__dirname, 'src', 'background', 'EEGselector.ts')
+    path.join(__dirname, '..', 'dist', 'src', 'flasher', 'EEGselector.js'),
+    path.join(__dirname, '..', 'src', 'flasher', 'EEGselector.ts')
 ];
 
 // Function to remove `export {};` from a file

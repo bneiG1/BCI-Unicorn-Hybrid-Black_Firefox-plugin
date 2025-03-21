@@ -14,7 +14,7 @@
         "<all_urls>"
       ],
       "js": [
-        "src/background/EEGselector.js"
+        "src/flasher/EEGselector.js"
       ]
     }
   ]
