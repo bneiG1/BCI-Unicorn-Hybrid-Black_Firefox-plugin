@@ -1,0 +1,38 @@
+{
+  "name": "BCI-Unicorn-Hybrid-Black_Firefox-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "EEGselector.js",
+  "type": "module",
+  "license": "AGPL-version-3.0",
+  "private": false,
+  "engines": {
+    "node": ">= 14.0.0",
+    "npm": ">= 6.0.0"
+  },
+  "homepage": "BCI-Unicorn-Hybrid-Black_Firefox-plugin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bneiG1/BCI-Unicorn-Hybrid-Black_Firefox-plugin"
+  },
+  "bugs": "",
+  "keywords": [],
+  "author": {
+    "name": "bneiG1",
+    "email": "",
+    "url": ""
+  },
+  "contributors": [],
+  "scripts": {
+    "clean": "rmdir /s /q dist",
+    "compile": "npx tsc",
+    "copy-assets": "robocopy . dist /E /XD src dist /XF tsconfig.json /XF EEGselector.js",
+    "remove-export": "node removeExport.js",
+    "build": "npm run clean && npm run compile && npm run remove-export && npm run copy-assets"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.310",
+    "@types/node": "^22.13.10",
+    "typescript": "^5.8.2"
+  }
+}

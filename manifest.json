@@ -1,16 +1,20 @@
 {
   "description": "Navigate the internet only using your brain",
-  "manifest_version": 2,
-  "name": "MindSurfers",
-  "version": "1.0",
-  "homepage_url": "https://github.com/Relu12345/Hackathon-IEEE-SMC-2024/tree/main/Proiect%20Web",
+  "manifest_version": 3,
+  "name": "BCI-Unicorn-Hybrid-Black_Firefox-plugin",
+  "version": "1.0.0",
+  "homepage_url": "https://github.com/bneiG1/BCI-Unicorn-Hybrid-Black_Firefox-plugin",
+  "permissions": [
+    "scripting",
+    "activeTab"
+  ],
   "content_scripts": [
     {
       "matches": [
         "<all_urls>"
       ],
       "js": [
-        "EEGselector.js"
+        "src/background/EEGselector.js"
       ]
     }
   ]
