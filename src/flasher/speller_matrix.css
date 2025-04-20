@@ -1,0 +1,35 @@
+/* P300 Speller Matrix CSS for both popup and overlay */
+#speller_matrix {
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+table {
+    color: white;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+}
+td {
+    width: 60px;
+    height: 60px;
+    font-size: 2em;
+    text-align: center;
+    font-family: Arial;
+    transition: color 0.1s, background 0.1s;
+}
+#start {
+    display: block;
+    margin: 30px auto 0 auto;
+    font-size: 1.5em;
+    padding: 10px 30px;
+}
+.flashing {
+    color: red !important;
+    background: yellow !important;
+}
+body {
+    background: #F2F3F4;
+}
